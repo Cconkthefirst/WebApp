@@ -9,8 +9,6 @@ fetch('footballPlayers.json')
     // Call a function to set the child elements using the data
     availablePlayers = selectRandomElements(data, playerCount);
     cards = document.querySelectorAll('.card')
-    console.log(cards)
-    console.log(availablePlayers)
     setCardData(availablePlayers, cards)
     main (availablePlayers);
   })
@@ -18,9 +16,6 @@ fetch('footballPlayers.json')
     // Handle any errors that occurred during the loading process
     console.error('Error:', error);
   });
-
-
-
 
 //Global Variables:
 //======================================================================================
@@ -63,56 +58,42 @@ function setCardData(players, cards) {
         const randomIndex = Math.floor(Math.random() * remainingPlayers.length);
         const curPlayer = remainingPlayers[randomIndex];
         
-        cards[i].dataset.player = JSON.stringify(curPlayer)
-        
+        cards[i].dataset.player = JSON.stringify(curPlayer);
+        cards[i].querySelector('.playerName').textContent = curPlayer.name;
         remainingPlayers.splice(randomIndex, 1);
     }
   }
 }
+//==========================================================================================
 
 
+function animateProgressBar(data,duration, elementName) {
+  var height = 0;
+  var interval = 10;
+  var increment = 100 / (duration / interval);
 
-//Builds the Cards for the Game:
-//======================================================================================
-// let playerData = []; // Declare an empty array to store player data globally
+  var timer = setInterval(function() {
+    height += increment;
+    elementName.style.height = height + '%';
 
-// function buildCards(playerPool) {
-//   if (playerPool.length === 0) {
-//     console.error('Player pool is empty');
-//     return;
-//   }
+    if (height >= data.rating) {
+      clearInterval(timer);
+    }
+  }, interval);
+}
 
-//   const cards = document.querySelectorAll('.card');
-//   const remainingPlayers = [...playerPool];
-
-//   cards.forEach((card) => {
-//     const nameTag = card.querySelector('.playerName');
-//     if (remainingPlayers.length > 0) {
-//       const randomIndex = Math.floor(Math.random() * remainingPlayers.length);
-//       const player = remainingPlayers[randomIndex];
-//       remainingPlayers.splice(randomIndex, 1);
-
-     
-//         nameTag.textContent = player.name;
-//         card.dataset.player = JSON.stringify(player);
-//         playerData.push(player); // Store the player data globally
-//         const ratingBar = card.querySelector('.resaultBar');
-//         ratingBar.style.display = 'block';
-//     }
+// document.querySelectorAll('.card').forEach(function(card) {
+//   card.addEventListener('click', function() {
+//     var clickedCard = this;
+//     this.remove();
+//     document.querySelector('.game').prepend(clickedCard);
 //   });
-// }
-
-
+// });
 
 
 // Main Function:
 //======================================================================================
 function main(useableData) {
-  //buildCards(useableData)
- 
-
-
-
 
   // ---------------------------
   // Draggable elements effects:
@@ -172,14 +153,7 @@ function main(useableData) {
     console.log("card dropped");
     let ratingBar = selected.querySelector('.resaultBar');
     ratingBar.style.display = "block";
-
-    // let ratingText = document.createElement('span');
-    // ratingText.textContent = playerData.rating;
-    // ratingText.classList.add('ratingText');
-    // // Append the rating text element to the ratingBar
-    // ratingBar.appendChild(ratingText);
-
-    animateProgressBar(3000, ratingBar);
+    animateProgressBar(playerData,3000, ratingBar);
   });
   
   dropZoneTwo.addEventListener("drop", function(e) {
@@ -187,14 +161,7 @@ function main(useableData) {
     console.log("card dropped");
     let ratingBar = selected.querySelector('.resaultBar');
     ratingBar.style.display = "block";
-
-    // let ratingText = document.createElement('span');
-    // ratingText.textContent = playerData.rating;
-    // ratingText.classList.add('ratingText');
-    // // Append the rating text element to the ratingBar
-    // ratingBar.appendChild(ratingText);
-
-    animateProgressBar(3000, ratingBar);
+    animateProgressBar(playerData,3000, ratingBar);
   });
   
   dropZoneThree.addEventListener("drop", function(e) {
@@ -202,30 +169,8 @@ function main(useableData) {
     console.log("card dropped");
     let ratingBar = selected.querySelector('.resaultBar');
     ratingBar.style.display = "block";
-
-    // let ratingText = document.createElement('span');
-    // ratingText.textContent = playerData.rating;
-    // ratingText.classList.add('ratingText');
-    // // Append the rating text element to the ratingBar
-    // ratingBar.appendChild(ratingText);
-
-    animateProgressBar(3000, ratingBar);
+    animateProgressBar(playerData,3000, ratingBar);
   });
-  
-  function animateProgressBar(duration, elementName) {
-    var height = 0;
-    var interval = 10;
-    var increment = 100 / (duration / interval);
-  
-    var timer = setInterval(function() {
-      height += increment;
-      elementName.style.height = height + '%';
-  
-      if (height >= playerData.rating) {
-        clearInterval(timer);
-      }
-    }, interval);
-  }
   // ---------------------------
   
 }

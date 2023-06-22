@@ -5,7 +5,7 @@
        "position": "QB",
        "sport": "Football",
        "img": "https://th.bing.com/th/id/OIP.RHId-eUH6T06TfBOy5LOvAHaE8?w=288&h=192&c=7&r=0&o=5&dpr=1.8&pid=1.7",
-       "rating": "75",
+       "rating": "50",
        "PassYards": "4,000",
        "PassTD": "45",
        "Interceptions": "10"
@@ -16,7 +16,7 @@
        "position": "QB",
        "sport": "Football",
        "img": "https://th.bing.com/th/id/OIP.jjZTTuNPRTDHqk7Urlzk_gHaFM?w=271&h=190&c=7&r=0&o=5&dpr=1.8&pid=1.7 https://th.bing.com/th/id/OIP.upToIcDEkXOtTEkWc1tpSQHaFK?w=276&h=192&c=7&r=0&o=5&dpr=1.8&pid=1.7",
-       "rating": "24",
+       "rating": "60",
        "PassYards": "4,000",
        "PassTD": "45",
        "Interceptions": "10"
@@ -27,7 +27,7 @@
        "position": "QB",
        "sport": "Football",
        "img": "https://th.bing.com/th/id/OIP.qw89PFqdmWm3j7DZLXgCygHaHa?w=184&h=184&c=7&r=0&o=5&dpr=1.8&pid=1.7",
-       "rating": "53",
+       "rating": "70",
        "PassYards": "4,000",
        "PassTD": "45",
        "Interceptions": "10"
@@ -38,7 +38,7 @@
        "position": "QB",
        "sport": "Football",
        "img": "https://th.bing.com/th/id/OIP.upToIcDEkXOtTEkWc1tpSQHaFK?w=276&h=192&c=7&r=0&o=5&dpr=1.8&pid=1.7",
-       "rating": "42",
+       "rating": "80",
        "PassYards": "4,000",
        "PassTD": "45",
        "Interceptions": "10"
